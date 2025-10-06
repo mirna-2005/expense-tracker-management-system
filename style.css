@@ -1,0 +1,754 @@
+/*
+ * Base Styles & Utilities
+ * Resets, Body, HTML, Typography, Buttons, Forms
+ */
+
+/* 1. Basic Reset & Box Sizing */
+html {
+    box-sizing: border-box;
+    height: 100%; /* For sticky footer */
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* 2. Body & Typography */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f7f6; /* Consistent light background */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column; /* For sticky footer */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+/* 3. Global Main Content Area */
+main {
+    flex-grow: 1; /* Pushes footer down */
+    padding: 20px;
+    max-width: 1200px; /* Wider max-width for overall content */
+    margin: 0 auto; /* Center main content */
+    width: 100%; /* Ensure it takes full width up to max-width */
+}
+
+/* 4. Global Sections (for backgrounds, shadows, etc.) */
+.section-card { /* A generic card style for many sections */
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px; /* Space between sections if stacked */
+}
+
+/* 5. Headings within sections */
+.section-card h2 {
+    color: #333;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee; /* Added a subtle bottom border for section titles */
+    padding-bottom: 15px;
+}
+
+.section-card h3 {
+    color: #28a745; /* Green for sub-headings */
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 6. Form Controls (Inputs, Labels, Selects) */
+.form-control {
+    margin-bottom: 15px;
+    text-align: center; /* Center labels and inputs */
+}
+
+.form-control label {
+    display: block; /* Make label take full width */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+.form-control input[type="text"],
+.form-control input[type="number"],
+.form-control input[type="date"],
+.form-control select {
+    width: calc(100% - 22px); /* 10px padding left/right + 1px border left/right = 22px */
+    max-width: 350px; /* Limit input width for better aesthetics */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center; /* Center text inside input */
+    display: block; /* Allows max-width and margin auto to center */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 7. Button Styles */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+}
+
+.primary-button,
+.secondary-button,
+.danger-button {
+    display: inline-block; /* Allow side-by-side in button-group */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    min-width: 150px; /* Ensure a minimum size */
+}
+
+.primary-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+.primary-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background-color: #007bff; /* Blue */
+    color: white;
+}
+.secondary-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.danger-button {
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+.danger-button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Specific small button for lists */
+.list-item-delete-btn { /* Renamed for clarity from .delete-expense-btn */
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.2s ease;
+    min-width: unset; /* Override min-width from general button style */
+}
+.list-item-delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+/*
+ * Header & Footer
+ */
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow header content to wrap */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allow nav items to wrap */
+    justify-content: center; /* Center nav items on smaller screens */
+    gap: 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+header nav a:hover,
+header nav a.active {
+    background-color: #5cb85c; /* Example active/hover color */
+    color: white; /* Keep text white on hover */
+}
+
+footer {
+    background-color: #333;
+    color: #bbb;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 0.85em;
+    margin-top: auto; /* Pushes the footer to the bottom */
+    width: 100%;
+}
+
+/*
+ * Dashboard Specific Styles
+ */
+.dashboard-layout { /* Applied to main if it's dashboard */
+    display: grid;
+    gap: 25px;
+    grid-template-columns: 1fr; /* Default to single column */
+    max-width: 900px; /* Max width for dashboard specific layout */
+    margin: 25px auto; /* Center content */
+}
+
+@media (min-width: 768px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
+    }
+    .balance-summary-card {
+        grid-column: 1 / -1; /* Make balance summary span all columns */
+    }
+}
+
+.dashboard-card { /* Replaces balance-summary-card, add-expense-card, transactions-card */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    display: flex; /* For consistent card content layout */
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dashboard-card h3 {
+    color: #28a745; /* Green heading for dashboard cards */
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.balance-summary-card p {
+    font-size: 2em;
+    font-weight: bold;
+    color: #4CAF50; /* Green for balance */
+    text-align: center;
+    margin: 0;
+}
+
+/* Transaction List (used on dashboard and reports) */
+.transaction-list { /* Generic class for lists of transactions */
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.transaction-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95em;
+    color: #444;
+}
+
+.transaction-list-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-list-item .description {
+    flex-grow: 1;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+.transaction-list-item .amount {
+    font-weight: bold;
+    color: #d32f2f; /* Red for expenses */
+    margin-left: 10px;
+}
+
+.transaction-list-item .date,
+.transaction-list-item .category {
+    font-size: 0.85em;
+    color: #777;
+    flex-basis: 15%; /* Give date and category a base width */
+    min-width: 80px;
+}
+
+.no-data-message { /* Generic message for empty lists/reports */
+    text-align: center;
+    color: #777;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+/* Chart Container */
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Top Categories List */
+#topCategoriesList {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+#topCategoriesList li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#topCategoriesList li:last-child {
+    border-bottom: none;
+}
+
+
+/*
+ * Settings Specific Styles
+ */
+.settings-section { /* Uses .section-card for general styling */
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.setting-group {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #eee; /* Optional: border-bottom for visual separation */
+}
+
+.setting-group:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.setting-group h3 {
+    color: #28a745;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.setting-group p {
+    color: #555;
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Special centering for budget save button */
+.settings-section .primary-button {
+    display: block; /* Make button block to center with margin auto */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 300px; /* Example max-width for the button */
+}
+
+/*
+ * Category Management Specific Styles
+ */
+.category-management-section { /* Uses .section-card for general styling */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.category-management-section .form-control input[type="text"] {
+    max-width: 350px; /* Specific width for category input */
+}
+
+.category-management-section .primary-button {
+    max-width: 350px; /* Specific width for add category button */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#categoriesList {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left; /* Align list items to left */
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.category-item:last-child {
+    margin-bottom: 0;
+}
+
+.category-item span {
+    flex-grow: 1; /* Allows category name to take available space */
+}
+
+/*
+ * Reports Specific Styles
+ */
+.reports-section { /* Uses .section-card for general styling */
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Report Card Styling (using .section-card directly) */
+.report-filters-card,
+.report-summary-card,
+.filtered-transactions-card {
+    /* These will automatically inherit from .section-card */
+    margin-bottom: 25px; /* Add extra space between report cards */
+}
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.filter-row .form-control {
+    flex: 1;
+    min-width: 180px; /* Slightly increased min-width for filters */
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.filter-row .form-control label {
+    text-align: center;
+}
+
+.filter-row .form-control input,
+.filter-row .form-control select {
+    width: 100%;
+    max-width: none; /* Override max-width for these specific inputs */
+    display: inline-block; /* Allow them to fit flex container */
+}
+
+/* Report Summary Styling */
+.report-summary-card p {
+    font-size: 1.1em;
+    color: #555;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.report-summary-card p span {
+    font-weight: bold;
+    color: #007bff; /* Blue for numbers */
+}
+
+/* Filtered Transactions List (using .transaction-list) */
+.filtered-transactions-list { /* Use .transaction-list for general styling */
+    margin-top: 20px;
+}
+
+.filtered-transactions-list .transaction-list-item .date,
+.filtered-transactions-list .transaction-list-item .category {
+    font-weight: bold;
+    color: #666;
+    flex-basis: 15%;
+    min-width: 80px;
+}
+
+.filtered-transactions-list .transaction-list-item .description {
+    flex-basis: 45%;
+    min-width: 120px;
+    text-align: left;
+}
+
+.filtered-transactions-list .transaction-list-item .amount {
+    color: #dc3545; /* Red for expense amount */
+    flex-basis: 20%;
+    text-align: right;
+    min-width: 70px;
+}
+
+.download-report-section {
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* Section divider (reused) */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-color: #eee;
+    margin: 30px 0;
+}
+
+/* Utility Class (if you want to hide something that appears when empty) */
+.hidden {
+    display: none !important;
+}
+/* Add this to your style.css */
+
+/* Specific styling for the index.html main content */
+.index-main-content {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center; /* Center items horizontally within the main area */
+    gap: 25px; /* Space between sections */
+    max-width: 600px; /* Optional: Adjust max-width if you want the cards to be narrower than overall main */
+    margin: 25px auto; /* Center the main content if it has a max-width */
+}
+
+/* Ensure the cards within index-main-content also have an appropriate max-width if needed */
+.index-main-content .section-card {
+    width: 100%; /* Make cards take full width of their parent (index-main-content) */
+    max-width: 550px; /* Example: You can set a max-width for the cards themselves */
+}
+
+/* Override for transaction list for a simple view on index */
+.index-main-content .transaction-list-item {
+    justify-content: space-between; /* Ensures description and amount are separated */
+    align-items: center;
+    padding: 10px 0;
+}
+
+.index-main-content .transaction-list-item .date,
+.index-main-content .transaction-list-item .category {
+    display: none; /* Hide date/category on home page recent transactions for a simpler look */
+}
+
+.index-main-content .transaction-list-item .description {
+    flex-grow: 1;
+    margin-left: 0; /* Remove extra margin if date/category are hidden */
+    text-align: left;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex; /* Use flexbox for body */
+    flex-direction: column; /* Stack children vertically */
+    min-height: 100vh; /* Make body at least viewport height */
+}
+
+header, main, footer {
+    max-width: 1200px; /* Set a max-width for content */
+    margin: 0 auto; /* Center the block element */
+    width: 100%; /* Ensure it takes full width up to max-width */
+    padding: 10px 20px; /* Add some padding on the sides */
+    box-sizing: border-box; /* Include padding in the width */
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid #4CAF50; /* A distinct bottom border */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    background-color: #4CAF50;
+}
+
+main {
+    flex-grow: 1; /* Allow main to grow and push footer down */
+    padding: 20px;
+    background-color: #fff; /* White background for the main content area */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px; /* Slightly rounded corners */
+    margin-top: 20px; /* Space from header */
+    margin-bottom: 20px; /* Space from footer */
+}
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for now */
+    gap: 20px;
+}
+
+/* Section Card Styling */
+.section-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section-card h2 {
+    color: #4CAF50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Dashboard Card Styling */
+.dashboard-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin-bottom: 15px;
+}
+
+.dashboard-card h3 {
+    color: #333;
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.budget-card p {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2196F3; /* A nice blue for budget */
+    margin: 10px 0;
+}
+
+.budget-info {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.budget-info span {
+    font-weight: bold;
+    color: #4CAF50; /* Green for remaining budget */
+}
+
+
+/* Chart Container */
+.chart-container {
+    position: relative;
+    height: 300px; /* Fixed height for the chart */
+    width: 100%;
+}
+
+#spendingChart {
+    width: 100% !important; /* Override Chart.js default inline styles */
+    height: 100% !important;
+}
+
+/* Top Categories List */
+#topCategoriesList {
+    list-style: none;
+    padding: 0;
+}
+
+#topCategoriesList li {
+    background-color: #e8f5e9; /* Light green background */
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    color: #388e3c; /* Darker green text */
+}
+
+#topCategoriesList li:last-child {
+    margin-bottom: 0;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 20px;
+    margin-top: auto; /* Push footer to the bottom */
+    border-top: 5px solid #4CAF50;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .dashboard-layout {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on larger screens */
+    }
+    .dashboard-layout .section-card:first-child { /* Make the first section span two columns */
+        grid-column: 1 / -1;
+    }
+    .budget-card {
+        grid-column: 1 / span 1; /* Budget card takes one column */
+    }
+}
+
+@media (min-width: 1024px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr 1fr 1fr; /* Three columns on very large screens */
+    }
+    .dashboard-layout .section-card:first-child {
+        grid-column: 1 / -1; /* Still span all columns */
+    }
+    .dashboard-card:nth-child(2) { /* Spending overview chart */
+        grid-column: span 2; /* Make it span two columns */
+    }
+}
