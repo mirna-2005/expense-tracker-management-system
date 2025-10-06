@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Expense Tracker Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Expense Tracker Pro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="settings.html" class="active">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="settings-section">
+            <h2>Application Settings</h2>
+
+            <!-- Budget Management Section -->
+            <div class="setting-group">
+                <h3>Budget Management</h3>
+                <div class="form-control">
+                    <label for="monthly-budget">Monthly Budget (₹):</label>
+                    <input type="number" id="monthly-budget" placeholder="e.g., 20000">
+                </div>
+                <button id="saveBudgetBtn" class="primary-button">Save Budget</button>
+            </div>
+
+            <!-- Data Management Section -->
+            <div class="setting-group">
+                <h3>Data Management</h3>
+                <div class="button-group">
+                    <button id="exportDataBtn" class="secondary-button">Export Data (CSV)</button>
+                    <button id="clearAllDataBtn" class="danger-button">Clear All Data</button>
+                </div>
+            </div>
+
+            <hr class="settings-divider">
+
+            <!-- Account Settings / Logout Section -->
+            <div class="setting-group">
+                <h3>Account Actions</h3>
+                <p>Click the button below to log out of your account.</p>
+                <button id="logoutBtn" class="danger-button">Logout</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Expense Tracker Pro. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

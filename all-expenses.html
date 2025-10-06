@@ -1,0 +1,43 @@
+<!-- all-expenses.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Expenses - Expense Tracker Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- You might have a specific CSS for dashboard/tables here, e.g., dashboard.css -->
+</head>
+<body>
+    <header>
+        <h1>Expense Tracker Pro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="all-expenses.html" class="active">All Expenses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="transactions-card">
+            <h2>All Transactions</h2>
+            <div class="expense-list full-list" id="allTransactionsList">
+                <!-- All expense items will be added here by JavaScript -->
+                <p class="no-transactions-message">No expenses added yet.</p>
+            </div>
+            <button class="back-to-home-button primary-button" onclick="window.location.href='index.html'">Back to Home</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Expense Tracker Pro. All rights reserved.</p>
+    </footer>
+
+    <script src="script-all-expenses.js"></script> <!-- New JS file for this page -->
+</body>
+</html>

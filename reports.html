@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Reports</title>
+    <link rel="stylesheet" href="style.css"> <!-- Your main stylesheet -->
+</head>
+<body>
+    <header>
+        <h1>Expense Tracker Pro</h1> <!-- Consistent header title -->
+        <nav>
+            <ul> <!-- Added ul for navigation -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="reports.html" class="active">Reports</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main> <!-- main will be centered by its own CSS -->
+        <section class="reports-section section-card"> <!-- Use reports-section for specific layout, and section-card for general styling -->
+            <h2>Filter Reports</h2>
+            <form id="reportFiltersForm"> <!-- Wrap filters in a form for better structure and JavaScript access -->
+                <div class="filter-row"> <!-- Use filter-row for responsive layout -->
+                    <div class="form-control"> <!-- Use form-control for consistent input styling -->
+                        <label for="fromDate">From Date:</label>
+                        <input type="date" id="fromDate" name="startDate">
+                    </div>
+                    <div class="form-control">
+                        <label for="toDate">To Date:</label>
+                        <input type="date" id="toDate" name="endDate">
+                    </div>
+                    <div class="form-control">
+                        <label for="categoryFilter">Category:</label>
+                        <select id="categoryFilter" name="reportCategory">
+                            <option value="">All Categories</option> <!-- Default option -->
+                            <!-- Categories will be dynamically loaded here by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="minAmount">Min Amount:</label>
+                        <input type="number" id="minAmount" name="minAmount" step="0.01" min="0">
+                    </div>
+                    <div class="form-control">
+                        <label for="maxAmount">Max Amount:</label>
+                        <input type="number" id="maxAmount" name="maxAmount" step="0.01" min="0">
+                    </div>
+                </div>
+                <div class="filter-buttons">
+                    <button type="button" id="applyFiltersBtn" class="primary-button">Apply Filters</button> <!-- type="button" to prevent form submission -->
+                    <button type="button" id="resetFiltersBtn" class="secondary-button">Reset Filters</button>
+                    <button type="button" id="downloadReportBtn" class="secondary-button">Download CSV</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="report-summary-card section-card"> <!-- Use report-summary-card and section-card -->
+            <h2>Report Summary</h2>
+            <div class="summary-item">
+                <p>Total Expenses: <span id="summaryTotalExpenses">₹ 0.00</span></p>
+            </div>
+            <div class="summary-item">
+                <p>Number of Transactions: <span id="summaryNumTransactions">0</span></p>
+            </div>
+            <div class="summary-item">
+                <p>Average Expense: <span id="reportAverageExpense">₹ 0.00</span></p>
+            </div>
+        </section>
+
+        <section class="filtered-transactions-card section-card"> <!-- Use filtered-transactions-card and section-card -->
+            <h2>Filtered Transactions</h2>
+            <ul id="filteredTransactionsList" class="transaction-list"> <!-- Use ul with transaction-list class -->
+                <!-- Transactions will be inserted here by JavaScript -->
+            </ul>
+            <p id="noTransactionsMessage" class="no-data-message" style="display: none;">No transactions found matching your filters.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Expense Tracker Pro. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Expense Tracker Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Include Chart.js library for spending overview chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Expense Tracker Pro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-layout"> <!-- Added dashboard-layout class for grid styling -->
+        <section class="dashboard-section section-card"> <!-- Added section-card for consistent styling -->
+            <h2>Your Dashboard</h2>
+
+            <!-- Monthly Budget Display -->
+            <div class="dashboard-card budget-card">
+                <h3>Monthly Budget</h3>
+                <p>₹ <span id="displayedMonthlyBudget">0.00</span></p>
+                <p class="budget-info">Remaining: ₹ <span id="remainingBudget">0.00</span></p>
+            </div>
+
+            <!-- Spending Overview Chart -->
+            <div class="dashboard-card">
+                <h3>Spending Overview (Current Month)</h3>
+                <div class="chart-container">
+                    <canvas id="spendingChart"></canvas>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Top Categories (Current Month)</h3>
+                <ul id="topCategoriesList">
+                    <!-- Top categories will be dynamically loaded here by script.js -->
+                    <li>No expenses yet this month.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Expense Tracker Pro. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

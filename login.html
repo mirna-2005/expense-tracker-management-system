@@ -1,0 +1,68 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Login/Signup</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="app-header">
+            <h1>Expense Tracker</h1>
+        </header>
+
+        <main class="auth-card-container">
+            <section class="auth-card">
+                <div class="tab-navigation">
+                    <button id="loginTab" class="tab-button active">Login</button>
+                    <button id="signupTab" class="tab-button">Signup</button>
+                </div>
+
+                <form id="loginForm" class="auth-form-content active">
+                    <h2>Login</h2>
+                    <div class="form-group">
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password:</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" minlength="6" required>
+                    </div>
+                    <button type="submit" class="submit-button">Login</button>
+                    <p id="loginMessage" class="feedback-message" aria-live="polite"></p>
+                </form>
+
+                <form id="signupForm" class="auth-form-content">
+                    <h2>Signup</h2>
+                    <div class="form-group">
+                        <label for="signupName">Name:</label>
+                        <input type="text" id="signupName" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email:</label>
+                        <input type="email" id="signupEmail" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password:</label>
+                        <input type="password" id="signupPassword" placeholder="Create a password" minlength="6" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" id="confirmPassword" placeholder="Confirm your password" minlength="6" required>
+                    </div>
+                    <button type="submit" class="submit-button">Signup</button>
+                    <p id="signupMessage" class="feedback-message" aria-live="polite"></p>
+                </form>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>&copy; 2025 Expense Tracker. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - Expense Tracker Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Expense Tracker Pro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="categories.html" class="active">Categories</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="category-management-section">
+            <h2>Manage Categories</h2>
+
+            <!-- Add New Category Section -->
+            <div class="add-category-form-group">
+                <h3>Add New Category</h3>
+                <form id="addCategoryForm">
+                    <div class="form-control">
+                        <label for="categoryName">Category Name:</label>
+                        <input type="text" id="categoryName" placeholder="e.g., Groceries" required>
+                    </div>
+                    <button type="submit" class="primary-button">Add Category</button>
+                </form>
+            </div>
+
+            <hr class="section-divider">
+
+            <!-- Current Categories List -->
+            <div class="current-categories-list-group">
+                <h3>Current Categories</h3>
+                <ul id="categoriesList">
+                    <li class="no-categories-message">No categories added yet.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Expense Tracker Pro. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+/* categories.css */
+
+#category-management {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-category,
+.category-list-display {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.add-category h3,
+.category-list-display h3 {
+    color: #333;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#add-category-form .input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+#add-category-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+#add-category-form input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+#add-category-form button[type="submit"] {
+    background-color: #007bff; /* Blue for add action */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+#add-category-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#category-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+#category-list li span {
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+.delete-category-btn {
+    background-color: #dc3545; /* Red for delete action */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.delete-category-btn:hover {
+    background-color: #c82333;
+}
+
+.message {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
